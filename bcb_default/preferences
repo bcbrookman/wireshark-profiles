@@ -220,14 +220,23 @@ gui.column.hidden:
 
 # Packet list column format
 # Each pair of strings consists of a column title and its format
-#gui.column.format: 
-#	"No.", "%m",
-#	"Time", "%t",
-#	"Source", "%s",
-#	"Destination", "%d",
-#	"Protocol", "%p",
-#	"Length", "%L",
-#	"Info", "%i"
+gui.column.format: 
+	"No.", "%m",
+	"Time", "%t",
+	"Delta Displayed", "%Cus:frame.time_delta_displayed:0:R",
+	"Source", "%s",
+	"Destination", "%d",
+	"Protocol", "%p",
+	"Length", "%L",
+	"VLAN", "%q",
+	"IP ID", "%Cus:ip.id:0:R",
+	"IP DSCP", "%f",
+	"TCP Stream", "%Cus:tcp.stream:0:R",
+	"SEQ", "%Cus:tcp.seq:0:R",
+	"TCP Len", "%Cus:tcp.len:0:R",
+	"Next SEQ", "%Cus:tcp.nxtseq:0:R",
+	"ACK", "%Cus:tcp.ack:0:R",
+	"Info", "%i"
 
 ####### User Interface: Font ########
 
@@ -270,7 +279,7 @@ gui.show_selected_packet.enabled: TRUE
 
 # Show file load time in the Status Bar
 # TRUE or FALSE (case-insensitive)
-#gui.show_file_load_time.enabled: FALSE
+gui.show_file_load_time.enabled: TRUE
 
 # Show related packet indicators in the first column
 # TRUE or FALSE (case-insensitive)
