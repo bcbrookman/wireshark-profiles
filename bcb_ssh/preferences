@@ -1,0 +1,27 @@
+gui.column.hidden: 
+gui.column.format: 
+	"No.", "%m",
+	"Time", "%t",
+	"Delta Displayed", "%Cus:frame.time_delta_displayed:0:R",
+	"TCP Delta", "%Cus:tcp.time_delta:0:R",
+	"Source", "%s",
+	"Destination", "%d",
+	"Protocol", "%p",
+	"Length", "%L",
+	"VLAN", "%q",
+	"IP ID", "%Cus:ip.id:0:R",
+	"IP DSCP", "%f",
+	"TCP Stream", "%Cus:tcp.stream:0:R",
+	"SEQ", "%Cus:tcp.seq:0:R",
+	"TCP Len", "%Cus:tcp.len:0:R",
+	"Next SEQ", "%Cus:tcp.nxtseq:0:R",
+	"ACK", "%Cus:tcp.ack:0:R",
+	"Info", "%i"
+gui.qt.font_name: Consolas,10,-1,5,50,0,0,0,0,0
+gui.layout_type: 2
+gui.packet_list_separator.enabled: TRUE
+gui.show_selected_packet.enabled: TRUE
+gui.show_file_load_time.enabled: TRUE
+nameres.network_name: TRUE
+nameres.load_smi_modules: TRUE
+nameres.suppress_smi_errors: TRUE
