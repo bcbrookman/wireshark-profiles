@@ -1,15 +1,9 @@
 # This helper script cleans up Wireshark profile config files by removing commented, blank, and unnecessary lines.
-
 import os
-import re
 
 
 def is_filtered(line_text):
     filter_rules = [
-        {
-            "condition": re.search("^#.+file for Wireshark \\d+\\.\\d+\\.\\d+", line_text),
-            "filtered": False
-        },
         {
             "condition": line_text in ['\n', '\r\n'],
             "filtered": True

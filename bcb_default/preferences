@@ -1,4 +1,3 @@
-# Configuration file for Wireshark 3.4.6.
 gui.column.hidden: 
 gui.column.format: 
 	"No.", "%m",
@@ -22,3 +21,6 @@ gui.layout_type: 2
 gui.packet_list_separator.enabled: TRUE
 gui.show_selected_packet.enabled: TRUE
 gui.show_file_load_time.enabled: TRUE
+nameres.network_name: TRUE
+nameres.load_smi_modules: TRUE
+nameres.suppress_smi_errors: TRUE
