@@ -1,0 +1,25 @@
+gui.column.hidden: 
+gui.column.format: 
+	"No.", "%m",
+	"Time", "%t",
+	"Delta Displayed", "%Cus:frame.time_delta_displayed:0:R",
+	"Source", "%s",
+	"Destination", "%d",
+	"Protocol", "%p",
+	"Length", "%L",
+	"VLAN", "%q",
+	"IP ID", "%Cus:ip.id:0:R",
+	"IP DSCP", "%f",
+	"Info", "%i",
+	"Directory/Filename", "%Cus:nfs.name:0:R"
+gui.qt.font_name: Consolas,10,-1,5,50,0,0,0,0,0
+gui.layout_type: 2
+gui.packet_list_separator.enabled: TRUE
+gui.show_selected_packet.enabled: TRUE
+gui.show_file_load_time.enabled: TRUE
+nameres.network_name: TRUE
+nameres.load_smi_modules: TRUE
+nameres.suppress_smi_errors: TRUE
+nfs.file_name_snooping: TRUE
+nfs.file_full_name_snooping: TRUE
+nfs.fhandle_find_both_reqrep: TRUE

@@ -1,0 +1,1 @@
+"TRUE","NFS Errors","nfs.status > 0 || nfs.status2 > 0 || nfs.status3 > 0 || nfs.nfsstat4 > 0",""
