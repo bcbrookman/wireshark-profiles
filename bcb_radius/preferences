@@ -1,0 +1,27 @@
+gui.column.hidden: 
+gui.column.format: 
+	"No.", "%m",
+	"Time", "%t",
+	"Delta Displayed", "%Cus:frame.time_delta_displayed:0:R",
+	"RADIUS Resp. Delta", "%Cus:radius.time:0:R",
+	"Source", "%s",
+	"Destination", "%d",
+	"Protocol", "%p",
+	"Length", "%L",
+	"VLAN", "%q",
+	"IP ID", "%Cus:ip.id:0:R",
+	"IP DSCP", "%f",
+	"Stream", "%Cus:tcp.stream || udp.stream:0:R",
+	"User-Name", "%Cus:radius.User_Name:0:R",
+	"NAS-ID/IP", "%Cus:radius.NAS_Identifier || radius.NAS_IP_Address || radius.NAS_IPv6_Address:0:R",
+	"NAS-Port", "%Cus:radius.NAS_Port_Type || radius.NAS_Port || radius.NAS_Port_Id:0:R",
+	"Info", "%i"
+gui.qt.font_name: Consolas,10,-1,5,50,0,0,0,0,0
+gui.layout_type: 2
+gui.packet_list_separator.enabled: TRUE
+gui.show_selected_packet.enabled: TRUE
+gui.show_file_load_time.enabled: TRUE
+nameres.network_name: TRUE
+nameres.load_smi_modules: TRUE
+nameres.suppress_smi_errors: TRUE
+radius.show_length: TRUE
