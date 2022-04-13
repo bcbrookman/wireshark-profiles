@@ -1,0 +1,1 @@
+"TRUE","SMB Errors","smb.error_class || smb.error_code || smb.nt_status > 0",""
