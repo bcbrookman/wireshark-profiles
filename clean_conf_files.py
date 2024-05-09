@@ -25,7 +25,7 @@ if __name__ == "__main__":
             for conf_file in files:
 
                 # Read the current file, and exclude any lines matching is_filtered() filter rules
-                with open(os.path.join(root, conf_file), "r") as current_file:
+                with open(os.path.join(root, conf_file), "r", newline="") as current_file:
                     unfiltered_lines = []
                     for line in current_file:
                         if is_filtered(line):
@@ -34,5 +34,5 @@ if __name__ == "__main__":
                             unfiltered_lines.append(line)
 
                 # Open the current file again, replacing its contents with only the remaining unfiltered lines
-                with open(os.path.join(root, conf_file), "w") as current_file:
+                with open(os.path.join(root, conf_file), "w", newline="") as current_file:
                     current_file.writelines(unfiltered_lines)
