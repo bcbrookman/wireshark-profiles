@@ -18,8 +18,6 @@ gui.packet_list_separator.enabled: TRUE
 gui.show_selected_packet.enabled: TRUE
 gui.show_file_load_time.enabled: TRUE
 nameres.network_name: TRUE
-nameres.load_smi_modules: TRUE
-nameres.suppress_smi_errors: TRUE
 nfs.file_name_snooping: TRUE
 nfs.file_full_name_snooping: TRUE
 nfs.fhandle_find_both_reqrep: TRUE
