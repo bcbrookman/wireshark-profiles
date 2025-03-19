@@ -16,9 +16,8 @@ These profiles aim to save time by applying some common configurations, and prot
 
 ## Installation
 
-1. Clone the repo locally with `git clone https://github.com/bcbrookman/wireshark-profiles.git`
-2. Launch Wireshark and navigate to "**Edit**" → "**[Configuration Profiles…](https://www.wireshark.org/docs/wsug_html_chunked/ChCustConfigProfilesSection.html#ChCustGUIConfigProfilesPage)**"
-3. In the open "**Configuration Profiles…**" window, click the "**Import**" button, and select "**from directory**" in the dropdown menu
-4. When the browse window opens, navigate to the location where you locally cloned the git repo
-5. Highlight the cloned git repo, and click the "**Select Folder**" button to import all profiles in the directory
-6. Lastly, click the "**OK**" button in the "**Configuration Profiles…**" window to confirm your changes
+1. Download the latest `wireshark-profiles_bcbrookman_YYYY.MM.DD.zip` from [Releases](https://github.com/bcbrookman/wireshark-profiles/releases)
+2. Launch Wireshark and navigate to "**Edit**" → "**[Configuration Profiles…](https://www.wireshark.org/docs/wsug_html_chunked/ChCustConfigProfilesSection.html#ChCustGUIConfigProfilesPage)**" in the menu bar
+3. Click the "**Import**" button, and select "**From Zip File...**" in the dropdown menu
+4. Navigate to and select the release zip file downloaded in step 1 to import the profiles
+5. Finally, don't forget to click the "**OK**" button in the "**Configuration Profiles…**" window to confirm your changes
