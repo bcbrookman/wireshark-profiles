@@ -4,6 +4,7 @@
 # Project build/output files
 .build/
 .output/
+.task/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
