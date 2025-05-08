@@ -1,0 +1,36 @@
+version: '3'
+
+run: once
+
+tasks:
+  default:
+    cmds:
+      - cmd: task --list
+        ignore_error: true
+        silent: true
+
+  profiles:clean:
+    desc: Cleans up profile config files (comments, blanks, etc.)
+    aliases:
+      - clean
+    sources:
+      # only run if a profile has changed
+      - profiles/**/*
+    cmds:
+      - python3 .scripts/clean_conf_files.py
+
+  profiles:build:
+    desc: Generates an importable profile bundle (after cleaning)
+    aliases:
+      - build
+    deps:
+      - clean
+    sources:
+      # only run if a profile has changed
+      - profiles/**/*
+    generates:
+      # or if no output files already exist
+      - .output/wireshark-profiles_bcbrookman_*.*.*.zip
+    cmds:
+      - python3 .scripts/build_profiles.py
+    
