@@ -21,3 +21,12 @@ These profiles aim to save time by applying some common configurations, and prot
 3. Click the "**Import**" button, and select "**From Zip File...**" in the dropdown menu
 4. Navigate to and select the release zip file downloaded in step 1 to import the profiles
 5. Finally, don't forget to click the "**OK**" button in the "**Configuration Profiles…**" window to confirm your changes
+
+## Development
+
+Development really just means making changes within Wireshark and exporting or copying profiles.
+
+Whenever changes are saved, however, Wireshark also includes some unnecessary comments, line breaks, and user-specific settings which are undesirable in shared profiles (see [Wireshark Configuration Files](https://www.wireshark.org/docs/wsug_html_chunked/ChAppFilesConfigurationSection.html) for more). To exclude this unwanted content, a `.gitignore` and Python script, `.scripts/clean_conf_files.py`, are used.
+
+A [Taskfile](https://taskfile.dev/) is also included to help automate this process and perform other common tasks.
+To see a list of tasks available in the Taskfile, run `task --list`.
