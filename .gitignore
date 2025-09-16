@@ -1,5 +1,5 @@
 # Excluded Wireshark files
-*/recent
+profiles/**/recent
 
 # Project build/output files
 .build/
