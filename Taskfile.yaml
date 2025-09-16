@@ -9,6 +9,21 @@ tasks:
         ignore_error: true
         silent: true
 
+  profiles:push:
+    desc: Pushes profiles to the default profiles directory
+    aliases:
+      - push
+    cmds:
+      - python3 .scripts/sync_profiles.py push
+
+  profiles:pull:
+    desc: Pulls profiles from the default profiles directory
+    aliases:
+      - pull
+    cmds:
+      - python3 .scripts/sync_profiles.py pull
+      - task: profiles:clean
+
   profiles:clean:
     desc: Cleans up profile config files (comments, blanks, etc.)
     aliases:
@@ -33,4 +48,4 @@ tasks:
       - .output/wireshark-profiles_bcbrookman_*.*.*.zip
     cmds:
       - python3 .scripts/build_profiles.py
-    
+
