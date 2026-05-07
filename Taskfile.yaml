@@ -2,6 +2,9 @@ version: '3'
 
 run: once
 
+# allow setting CUSTOM_WS_PROFILE_DIR via .env file
+dotenv: ['.env']
+
 tasks:
   default:
     cmds:
@@ -14,14 +17,14 @@ tasks:
     aliases:
       - push
     cmds:
-      - python .scripts/sync_profiles.py push
+      - python .scripts/sync_profiles.py push {{if .CUSTOM_WS_PROFILE_DIR}}'{{.CUSTOM_WS_PROFILE_DIR}}'{{end}}
 
   profiles:pull:
     desc: Pulls profiles from the default profiles directory
     aliases:
       - pull
     cmds:
-      - python .scripts/sync_profiles.py pull
+      - python .scripts/sync_profiles.py pull {{if .CUSTOM_WS_PROFILE_DIR}}'{{.CUSTOM_WS_PROFILE_DIR}}'{{end}}
       - task: profiles:clean
 
   profiles:clean:
@@ -48,4 +51,3 @@ tasks:
       - .output/wireshark-profiles_bcbrookman_*.*.*.zip
     cmds:
       - python .scripts/build_profiles.py
-

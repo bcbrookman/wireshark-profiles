@@ -16,19 +16,21 @@ if sys.version_info.major < 3:
 
 AUTHOR = "bcbrookman"
 DEV_PROFLE_SUFFIX = f" ({AUTHOR}_dev)"
-PROFILES_DIR = os.path.join(".", "profiles")
+LOCAL_PROFILES_DIR = os.path.join(".", "profiles")
 
 
-def get_wireshark_profiles_dir():
+def get_wireshark_profiles_dir(custom_ws_profile_dir=None):
     system = platform.system()
-    if system == "Windows":
+    if custom_ws_profile_dir:
+        return Path(custom_ws_profile_dir)
+    elif system == "Windows":
         return Path(os.getenv("APPDATA")) / "Wireshark" / "profiles"
     elif system == "Darwin":  # macOS
         return Path.home() / ".config" / "wireshark" / "profiles"
     elif system == "Linux":
         return Path.home() / ".config" / "wireshark" / "profiles"
     else:
-        print(f"Unsupported OS: {system}")
+        print(f"Unknown OS: {system}. Set custom_ws_profile_dir instead!")
         sys.exit(1)
 
 def push_profiles(src_dir, dst_dir):
@@ -51,19 +53,24 @@ def pull_profiles(src_dir, dst_dir):
             shutil.copytree(item, target_path)
             print(f"Pulled '{target_path}' from '{item}'")
 
-def main():
-    if len(sys.argv) != 2 or sys.argv[1] not in ["push", "pull"]:
-        print("Usage: sync_profiles.py [push|pull]")
-        sys.exit(1)
-
-    action = sys.argv[1]
-    ws_profiles_dir = get_wireshark_profiles_dir()
-
-    if action == "push":
-        push_profiles(Path(PROFILES_DIR).resolve(), ws_profiles_dir)
-    elif action == "pull":
-        pull_profiles(ws_profiles_dir, Path(PROFILES_DIR).resolve())
-
 
 if __name__ == "__main__":
-    main()
+
+    try:
+        custom_ws_profile_dir = sys.argv[2]
+        ws_profiles_dir = get_wireshark_profiles_dir(custom_ws_profile_dir)
+    except IndexError:
+        ws_profiles_dir = get_wireshark_profiles_dir()
+
+    try:
+        action = sys.argv[1]
+        if action == "push":
+            push_profiles(Path(LOCAL_PROFILES_DIR).resolve(), ws_profiles_dir)
+        elif action == "pull":
+            pull_profiles(ws_profiles_dir, Path(LOCAL_PROFILES_DIR).resolve())
+        else:
+            raise ValueError("Must specify either 'push' or 'pull'")
+    except (IndexError, ValueError) as err:
+        print(f"ERROR: {err}")
+        print("Usage: sync_profiles.py {push|pull} [/optional/custom/profiles/dir]")
+        sys.exit(1)

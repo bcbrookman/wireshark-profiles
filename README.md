@@ -30,3 +30,15 @@ Whenever changes are saved, however, Wireshark also includes some unnecessary co
 
 A [Taskfile](https://taskfile.dev/) is also included to help automate this process and perform other common tasks.
 To see a list of tasks available in the Taskfile, run `task --list`.
+
+```
+$ task --list
+task: Available tasks for this project:
+* profiles:build:       Generates an importable profile bundle (after cleaning)      (aliases: build)
+* profiles:clean:       Cleans up profile config files (comments, blanks, etc.)      (aliases: clean)
+* profiles:pull:        Pulls profiles from the default profiles directory           (aliases: pull)
+* profiles:push:        Pushes profiles to the default profiles directory            (aliases: push)
+```
+
+To override the default Wireshark profiles directory used with `push`/`pull`, set the `CUSTOM_WS_PROFILE_DIR` environment variable in your shell or `.env` file.
+This is especially useful when developing with the PortableApps® versions of Wireshark.
