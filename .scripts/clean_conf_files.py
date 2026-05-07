@@ -31,14 +31,14 @@ def is_filtered(line_text):
 if __name__ == "__main__":
 
     profiles_dir = os.path.join(".", "profiles")
-    build_dir = os.path.join(".", ".build")
-    output_dir = os.path.join(".", ".output")
 
     for root, dirs, files in os.walk(profiles_dir):
         if root != profiles_dir:  # Filter out excluded directories
             for conf_file in files:
+                conf_file_path = os.path.join(root, conf_file)
+
                 # Read the current file, and exclude any lines matching is_filtered() filter rules
-                with open(os.path.join(root, conf_file), "r", newline="") as current_file:
+                with open(conf_file_path, "r", newline="") as current_file:
                     unfiltered_lines = []
                     for line in current_file:
                         if is_filtered(line):
@@ -47,5 +47,9 @@ if __name__ == "__main__":
                             unfiltered_lines.append(line)
 
                 # Open the current file again, replacing its contents with only the remaining unfiltered lines
-                with open(os.path.join(root, conf_file), "w", newline="") as current_file:
+                with open(conf_file_path, "w", newline="") as current_file:
                     current_file.writelines(unfiltered_lines)
+
+                # Delete the current file, if now empty
+                if os.path.isfile(conf_file_path) and os.path.getsize(conf_file_path) == 0:
+                    os.remove(conf_file_path)
