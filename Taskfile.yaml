@@ -14,14 +14,14 @@ tasks:
     aliases:
       - push
     cmds:
-      - python3 .scripts/sync_profiles.py push
+      - python .scripts/sync_profiles.py push
 
   profiles:pull:
     desc: Pulls profiles from the default profiles directory
     aliases:
       - pull
     cmds:
-      - python3 .scripts/sync_profiles.py pull
+      - python .scripts/sync_profiles.py pull
       - task: profiles:clean
 
   profiles:clean:
@@ -32,7 +32,7 @@ tasks:
       # only run if a profile has changed
       - profiles/**/*
     cmds:
-      - python3 .scripts/clean_conf_files.py
+      - python .scripts/clean_conf_files.py
 
   profiles:build:
     desc: Generates an importable profile bundle (after cleaning)
@@ -47,5 +47,5 @@ tasks:
       # or if no output files already exist
       - .output/wireshark-profiles_bcbrookman_*.*.*.zip
     cmds:
-      - python3 .scripts/build_profiles.py
+      - python .scripts/build_profiles.py
 

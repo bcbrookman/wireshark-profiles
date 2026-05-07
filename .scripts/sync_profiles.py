@@ -1,13 +1,23 @@
 #!/usr/bin/env python3
+"""
+This helper script syncs Wireshark profiles between this repo and the local Wireshark config directory.
+"""
+
 import os
 import sys
 import shutil
 import platform
 from pathlib import Path
 
+
+if sys.version_info.major < 3:
+    raise EnvironmentError("Python 3 required!")
+
+
 AUTHOR = "bcbrookman"
 DEV_PROFLE_SUFFIX = f" ({AUTHOR}_dev)"
 PROFILES_DIR = os.path.join(".", "profiles")
+
 
 def get_wireshark_profiles_dir():
     system = platform.system()
@@ -53,6 +63,7 @@ def main():
         push_profiles(Path(PROFILES_DIR).resolve(), ws_profiles_dir)
     elif action == "pull":
         pull_profiles(ws_profiles_dir, Path(PROFILES_DIR).resolve())
+
 
 if __name__ == "__main__":
     main()

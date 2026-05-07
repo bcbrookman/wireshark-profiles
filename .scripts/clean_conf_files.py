@@ -1,8 +1,14 @@
+#!/usr/bin/env python3
 """
 This helper script cleans up Wireshark profile config files by removing commented, blank, and unnecessary lines.
 """
 
 import os
+import sys
+
+
+if sys.version_info.major < 3:
+    raise EnvironmentError("Python 3 required!")
 
 
 def is_filtered(line_text):
