@@ -1,5 +1,5 @@
 gui.column.hidden: %Cus:tcp.seq:0:R,%Cus:tcp.len:0:R,%Cus:tcp.nxtseq:0:R,%Cus:tcp.ack:0:R
-gui.column.format: 
+gui.column.format:
 	"No.", "%m",
 	"Time", "%t",
 	"Delta Displayed", "%Cus:frame.time_delta_displayed:0:R",
