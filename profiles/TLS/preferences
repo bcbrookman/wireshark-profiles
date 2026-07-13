@@ -1,5 +1,5 @@
 gui.column.hidden: %L,%q,%f
-gui.column.format: 
+gui.column.format:
 	"No.", "%m",
 	"Time", "%t",
 	"Delta Displayed", "%Cus:frame.time_delta_displayed:0:R",

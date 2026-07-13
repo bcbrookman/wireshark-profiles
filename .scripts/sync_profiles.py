@@ -9,7 +9,6 @@ import shutil
 import platform
 from pathlib import Path
 
-
 if sys.version_info.major < 3:
     raise EnvironmentError("Python 3 required!")
 
@@ -33,6 +32,7 @@ def get_wireshark_profiles_dir(custom_ws_profile_dir=None):
         print(f"Unknown OS: {system}. Set custom_ws_profile_dir instead!")
         sys.exit(1)
 
+
 def push_profiles(src_dir, dst_dir):
     for item in Path(src_dir).iterdir():
         if item.is_dir():
@@ -42,6 +42,7 @@ def push_profiles(src_dir, dst_dir):
                 shutil.rmtree(target_path)
             shutil.copytree(item, target_path)
             print(f"Pushed '{item}' to '{target_path}'")
+
 
 def pull_profiles(src_dir, dst_dir):
     for item in Path(src_dir).iterdir():
