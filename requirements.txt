@@ -1,0 +1,2 @@
+pre-commit==4.6.0
+go-task-bin==3.52.0

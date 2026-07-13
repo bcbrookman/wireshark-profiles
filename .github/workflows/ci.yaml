@@ -1,0 +1,27 @@
+---
+name: CI
+
+on:
+  workflow_dispatch:
+  pull_request:
+  push:
+    branches:
+      - main
+
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout the repo at current context
+        uses: actions/checkout@v7
+
+      - name: Setup Python
+        uses: actions/setup-python@v6
+
+      - name: Install go-task
+        run: pip install "$(grep -m1 'go-task-bin' requirements.txt)"
+
+      - name: Run tests
+        run: task test

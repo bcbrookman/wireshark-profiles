@@ -5,12 +5,27 @@ run: once
 # allow setting CUSTOM_WS_PROFILE_DIR via .env file
 dotenv: ['.env']
 
+vars:
+  PIP_OPTS: "--no-input --no-cache-dir --prefer-binary --upgrade"
+
 tasks:
   default:
     cmds:
       - cmd: task --list
         ignore_error: true
         silent: true
+
+  deps:pre-commit:
+    desc: Install pre-commit
+    internal: true
+    sources:
+      - requirements.txt
+    cmds:
+      - pip install {{.PIP_OPTS}} pre-commit
+      - pre-commit install
+    status:
+      - pre-commit --version
+      - test -f .git/hooks/pre-commit
 
   profiles:push:
     desc: Pushes profiles to the default profiles directory
@@ -51,3 +66,12 @@ tasks:
       - .output/wireshark-profiles_bcbrookman_*.*.*.zip
     cmds:
       - python .scripts/build_profiles.py
+
+  test:pre-commit:
+    desc: Run pre-commit tests
+    aliases:
+      - test
+    deps:
+      - deps:pre-commit
+    cmds:
+      - pre-commit run --all-files
