@@ -8,7 +8,7 @@ These profiles aim to save time by applying some common configurations, and prot
 
 - The preferred split layout
 - Protocol specific columns
-- Quick filter buttons 
+- Quick filter buttons
 - Useful I/O graph presets
 - Mostly default coloring rules
 - Mostly default "decode as" rules
@@ -34,10 +34,11 @@ To see a list of tasks available in the Taskfile, run `task --list`.
 ```
 $ task --list
 task: Available tasks for this project:
-* profiles:build:       Generates an importable profile bundle (after cleaning)      (aliases: build)
-* profiles:clean:       Cleans up profile config files (comments, blanks, etc.)      (aliases: clean)
-* profiles:pull:        Pulls profiles from the default profiles directory           (aliases: pull)
-* profiles:push:        Pushes profiles to the default profiles directory            (aliases: push)
+* profiles:build:        Generates an importable profile bundle (after cleaning)      (aliases: build)
+* profiles:clean:        Cleans up profile config files (comments, blanks, etc.)      (aliases: clean)
+* profiles:pull:         Pulls profiles from the default profiles directory           (aliases: pull)
+* profiles:push:         Pushes profiles to the default profiles directory            (aliases: push)
+* test:pre-commit:       Run pre-commit tests                                         (aliases: test)
 ```
 
 To override the default Wireshark profiles directory used with `push`/`pull`, set the `CUSTOM_WS_PROFILE_DIR` environment variable in your shell or `.env` file.
