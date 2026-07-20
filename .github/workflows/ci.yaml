@@ -18,7 +18,7 @@ jobs:
         uses: actions/checkout@v7
 
       - name: Setup Python
-        uses: actions/setup-python@v6
+        uses: actions/setup-python@v7
 
       - name: Install go-task
         run: pip install "$(grep -m1 'go-task-bin' requirements.txt)"
